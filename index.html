@@ -9,31 +9,17 @@
     <script src="data.module.js"></script>
     <script src="angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
-
-    <script src="menuapp.routes.js"></script>
     <script src="routes.js"></script>
 
     <script src="categories.controller.js"></script>
-
-    <script src="itemList.controller.js"></script>
+    <script src="items.controller.js"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Menu app</title>
   </head>
   <body>
     <h1></h1>
 
-    <div id="list" ng-controller='ShoppingListController as list'>
-      <input type="text" ng-model="list.itemName" placeholder="item name">
-      <input type="text" ng-model="list.itemQuantity" placeholder="quantity">
-      <button ng-click="list.addItem();">Add Item</button>
-      <span>{{ list.lastRemoved }}</span>
-
-      <shopping-list
-        items="list.items"
-        title="{{list.title}}"
-        on-remove="list.removeItem(index)"></shopping-list>
-
-    </div>
+    <ui-view></ui-view>
 
 
   </body>

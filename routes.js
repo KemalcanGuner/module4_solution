@@ -10,22 +10,22 @@
     $stateProvider
       .state("home", {
         url:          "/",
-        templateUrl:  "js/home/home.template.html"
+        templateUrl:  "home.template.html"
       })
       .state("categories", {
         url:          "/categories",
-        templateUrl:  "js/categories/categories-list.template.html",
-        controller:   "CategoriesListController as ctrl",
+        templateUrl:  "categories/categories.template.html",
+        controller:   "CategoriesController as ctgrs",
         resolve: {
           categories: [ "MenuDataService", function(MenuDataService) {
             return MenuDataService.getAllCategories();
           }]
         }
       })
-      .state("categories.items", {
+      .state("items", {
         url:          "/items/{categoryShortName}",
-        templateUrl:  "js/categories/items-list.template.html",
-        controller:   "ItemsListController as ctrl",
+        templateUrl:  "items/itemlist.template.html",
+        controller:   "ItemsController as itm",
         params:       { categoryShortName: null },
         resolve: {
           items: [ "$stateParams", "MenuDataService", function($stateParams, MenuDataService) {
